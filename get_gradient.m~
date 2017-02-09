@@ -1,0 +1,23 @@
+function [ grad_val ] = get_gradient(var, X, hypothesis_function)
+%calculates funcion's(func) gradient with respect to current
+    %variables(var) and training data(X)
+    w = 1;%weight = 1
+    g = 9.8;%gravity = 9.8
+    v0x=var(1,1);v0y=var(2,1);Fx=var(3,1);Fy=var(4,1);
+    temp_v0x = 0;temp_v0xy = 0;temp_Fx = 0;temp_Fy = 0;
+    m = size(X,1)
+    for i=1:m
+        ti = X(i,1);
+        xi = X(i,2);
+        yi = X(i,3);
+        
+        A = hypothesis_function(var, ti) - xi;
+        B = hypothesis_function(var, ti) - xi;
+        temp_v0x = temp_v0x + 2*v0*cos(theta)^2*ti^2 - cos(theta)*(Fx/w)*ti^3 - 2*cos(theta)*xi*ti + 2*v0*sin(theta)^2*ti^2 - sin(theta)*(g+Fy/w)*ti^3 - 2*sin(theta)*yi*ti;
+        temp_v0y = temp_v0y - 2*v0^2*cos(theta)*ti^2*sin(theta) + v0*sin(theta)*(Fx/w)*ti^3 + 2*v0*sin(theta)*xi*ti + 2*v0^2*sin(theta)*ti^2*cos(theta) - v0*cos(theta)*(g+Fy/w)*ti^3 - 2*v0*cos(theta)*yi*ti;
+        temp_Fx = temp_Fx + 0.5*(Fx/w)*ti^4*1/w - v0*cos(theta)*ti^3/w + ti^2/w*xi
+        temp_Fy = temp_Fy + 0.5*(g+Fy/w)*ti^4*1/w - v0*sin(theta)*ti^3/w + ti^2/w*yi;
+    end
+    grad_val = [temp_v0/m; temp_theta/m; temp_Fx/m; temp_Fy/m];
+end
+
