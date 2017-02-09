@@ -1,4 +1,3 @@
 %read training data
-X = csvread('projectiles.csv');
-
-[var,error] = gradientDescent( [5;6;0;0], 30, 0.012, @objective_function, X, @get_gradient, @hypothesis_function);
+trajectory = predict_xy( 10, pi/4, [1;1;1;1], 15, 0.012,30);
+plot(trajectory(:,2),trajectory(:,3));
