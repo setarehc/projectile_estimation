@@ -2,8 +2,8 @@ function [ output_var, err ] = gradientDescent( var, iter_num, alpha, objective_
 % Finds variables that minimize the error of the objective function.
     % var = [v0; theta; Fx; Fy], iter_num = maximum number of iterations, alpha =
         % step size, objective_function = objective function to be minimized,
-        % X=training data[t;x;y]. output_var = ultimate variables found by gradientDescent, err = vector
-        % containing error of each iteration.
+        % X=training data[t;x;y]. output_var = ultimate variables found by
+        % gradientDescent, err = vector containing error of each iteration.
     err = zeros(iter_num, 1);
     for iter=1:iter_num
         temp_alpha = alpha;
