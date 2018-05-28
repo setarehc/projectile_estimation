@@ -17,7 +17,7 @@ function [ trajectory ] = predict_xy( init_v, init_ang, init_var, iter_num, alph
             j = j + 1;
         end
         projectile_data = X([old_j:j-1],:)
-        [var,error] = gradientDescent( init_var, iter_num, alpha, @objective_function, projectile_data, @get_gradient, @hypothesis_function);
+        [var,~] = gradientDescent( init_var, iter_num, alpha, @objective_function, projectile_data, @get_gradient, @hypothesis_function);
         avg_var = avg_var + var;
         old_j = j;
         j = j+1;
