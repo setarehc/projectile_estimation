@@ -1,8 +1,8 @@
 function [ grad_val ] = get_gradient(var, X, hypothesis_function)
-%calculates funcion's(func) gradient with respect to current
-    %variables(var) and training data(X)
-    w = 1;%weight = 1
-    temp_v0x = 0;temp_v0y = 0;temp_Fx = 0;temp_Fy = 0;
+% Calculates funcion's(hypothesis_function) gradient with respect to current
+    % variables(var) and training data(X)
+    w = 1; % weight = 1
+    temp_v0x = 0;temp_v0y = 0; temp_Fx = 0;temp_Fy = 0;
     m = size(X,1);
     for i=1:m
         ti = X(i,1)*10^(-1);
